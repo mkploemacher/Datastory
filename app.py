@@ -213,14 +213,13 @@ def create_comparison_chart():
     fig.add_trace(go.Bar(name='Vrouwen', x=sporten, y=vrouwen_inkomen, marker_color=COLOR_WOMEN, texttemplate='$%{y:,.0f}', textposition='inside', textfont=dict(color=COLOR_TEXT)))
     
     fig.update_layout(
-        # AANGEPAST: Titel en font samengevoegd in één dictionary
-        title=dict(text="Mediaan Inkomen 2025", font=dict(color=COLOR_TEXT)),
+        title="Mediaan Inkomen 2025", # Simpele titel, pakt automatisch het globale font
         barmode='group',
         plot_bgcolor=COLOR_BG_APP, paper_bgcolor=COLOR_BG_APP,
-        yaxis=dict(showgrid=True, gridcolor=COLOR_GRID, range=[0, max_val * 1.25], tickfont=dict(color=COLOR_TEXT)),
-        xaxis=dict(tickfont=dict(color=COLOR_TEXT)),
+        yaxis=dict(showgrid=True, gridcolor=COLOR_GRID, range=[0, max_val * 1.25]),
+        xaxis=dict(), # Leeg laten, pakt automatisch globale font
         legend=dict(orientation="h", y=1.1, font=dict(color=COLOR_TEXT)),
-        font=dict(family='Lora', color=COLOR_TEXT)
+        font=dict(family='Lora', color=COLOR_TEXT) # DIT is de baas, regelt alles
     )
     return fig
 
@@ -236,15 +235,14 @@ def create_dumbbell_chart():
     fig.add_trace(go.Scatter(x=men_val, y=sports, mode='markers+text', name='Mannen', marker=dict(color=COLOR_MEN, size=16), text=men_val, texttemplate='$%{x:.2f}', textposition='top center', textfont=dict(color=COLOR_TEXT)))
     
     fig.update_layout(
-        # AANGEPAST: Titel en font samengevoegd
-        title=dict(text="Earnings per Viewer", font=dict(color=COLOR_TEXT)),
+        title="Earnings per Viewer", # Simpele titel
         margin=dict(t=50, b=0, l=0, r=0),
-        xaxis=dict(title="Dollar per kijker", range=[0, 0.45], showgrid=True, gridcolor=COLOR_GRID, tickfont=dict(color=COLOR_TEXT), titlefont=dict(color=COLOR_TEXT)),
-        yaxis=dict(showgrid=False, tickfont=dict(color=COLOR_TEXT)), 
+        xaxis=dict(title="Dollar per kijker", range=[0, 0.45], showgrid=True, gridcolor=COLOR_GRID),
+        yaxis=dict(showgrid=False), 
         plot_bgcolor=COLOR_BG_APP, paper_bgcolor=COLOR_BG_APP, 
         legend=dict(orientation="v", y=1, x=1.05, font=dict(color=COLOR_TEXT)), 
         height=400,
-        font=dict(family='Lora', color=COLOR_TEXT)
+        font=dict(family='Lora', color=COLOR_TEXT) # De globale baas
     )
     return fig
 
@@ -258,11 +256,10 @@ def create_line_chart_f4():
     fig.add_trace(go.Scatter(x=years, y=med_salary, mode='lines+markers', name='Mediaan (De massa)', line=dict(color=COLOR_BROWN_DARK, width=3, dash='dash')))
     
     fig.update_layout(
-        # AANGEPAST: Titel en font samengevoegd
-        title=dict(text="Salarisontwikkeling WNBA (2021-2025)", font=dict(color=COLOR_TEXT)),
+        title="Salarisontwikkeling WNBA (2021-2025)",
         plot_bgcolor=COLOR_BG_APP, paper_bgcolor=COLOR_BG_APP,
-        yaxis=dict(title="Inkomen ($)", showgrid=True, gridcolor=COLOR_GRID, tickfont=dict(color=COLOR_TEXT), titlefont=dict(color=COLOR_TEXT)),
-        xaxis=dict(tickmode='linear', tickfont=dict(color=COLOR_TEXT)),
+        yaxis=dict(title="Inkomen ($)", showgrid=True, gridcolor=COLOR_GRID),
+        xaxis=dict(tickmode='linear'),
         legend=dict(orientation="h", y=1.1, font=dict(color=COLOR_TEXT)),
         font=dict(family='Lora', color=COLOR_TEXT)
     )
@@ -308,17 +305,17 @@ def create_paradox_chart():
     fig.add_trace(go.Scatter(x=[None], y=[None], mode='markers', marker=dict(size=16, color=COLOR_MEN, symbol='circle'), name='Mannen (NBA)', showlegend=True), row=1, col=1)
 
     fig.update_layout(
-        # AANGEPAST: Titel en font samengevoegd
-        title=dict(text="De Markt-Paradox van 2025", font=dict(color=COLOR_TEXT)),
+        title="De Markt-Paradox van 2025",
         plot_bgcolor=COLOR_BG_APP, paper_bgcolor=COLOR_BG_APP,
-        font=dict(family='Lora', color=COLOR_TEXT),
+        font=dict(family='Lora', color=COLOR_TEXT), # Globale baas
         margin=dict(l=50, r=50, t=50, b=50),
         legend=dict(orientation="v", y=1, x=1.05, font=dict(color=COLOR_TEXT))
     )
     
+    # Opgeschoonde x-as settings (zonder dubbele font settings)
     common_xaxis_props = dict(
         title_text="% Verandering", range=[-19, 50], dtick=10, tickangle=0, zeroline=True, zerolinewidth=2, zerolinecolor='white',
-        showgrid=True, gridcolor=COLOR_GRID, gridwidth=1, tickfont=dict(color=COLOR_TEXT), titlefont=dict(color=COLOR_TEXT)
+        showgrid=True, gridcolor=COLOR_GRID, gridwidth=1
     )
 
     fig.update_xaxes(**common_xaxis_props, row=1, col=1)
