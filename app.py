@@ -445,8 +445,10 @@ st.markdown("""
 # =========================================================
 # FASE 1 De ongelijkheid in de top van de top
 # =========================================================
-# Anker voor navigatie
+
 st.markdown("<div id='fase1'></div>", unsafe_allow_html=True)
+
+st.header("De ongelijkheid in de top van de top")
 
 st.write("""
 De verdeling van salaris in de wereld blijft ongelijk. Voor een deel is dat logisch. 
