@@ -651,15 +651,22 @@ st.markdown("""
 st.markdown("<br>", unsafe_allow_html=True)
 with st.expander("Bronnenlijst bekijken"):
     st.markdown("""
-    * **Basketball Reference.** (z.d.). NBA player contracts. *Basketball Reference*. Geraadpleegd op 22 september 2025, van [https://www.basketball-reference.com/contracts/players.html](https://www.basketball-reference.com/contracts/players.html)
-    * **DIRECTV.** (2024, 15 mei). WNBA salary explained. *DIRECTV*. Geraadpleegd op 22 september 2025, van [https://www.directv.com/insider/wnba-salary/](https://www.directv.com/insider/wnba-salary/WNBA_salary_explained)
-    * **People.** (2023, 5 juli). How much are WNBA players paid? *People*. Geraadpleegd op 22 september 2025, van [https://people.com/how-much-are-wnba-players-paid-11781805](https://people.com/how-much-are-wnba-players-paid-11781805)
-    * **RunRepeat.** (z.d.). Salary analysis in the NBA (1991–2019). *RunRepeat*. Geraadpleegd op 22 september 2025, van [https://runrepeat.com/salary-analysis-in-the-nba-1991-2019](https://runrepeat.com/salary-analysis-in-the-nba-1991-2019)
-    * **The Hoops Geek.** (z.d.). Average NBA salary. *The Hoops Geek*. Geraadpleegd op 22 september 2025, van [https://www.thehoopsgeek.com/average-nba-salary/](https://www.thehoopsgeek.com/average-nba-salary/)
-    * **World Economic Forum.** (2024). Global Gender Gap Report. [Link](https://www.weforum.org/publications/global-gender-gap-report-2024/digest/)
-    * **The Guardian.** (2024). WNBA financial analysis.
-    * **University of West Georgia.** The Superstar Phenomenon. [Link](https://www.westga.edu/~bquest/1997/super.html)
-    * **Kahneman, D.** (2011). *Thinking, fast and slow.* Farrar, Straus and Giroux.
+    **Geraadpleegde databronnen**
+    
+    * **ATP Tour.** (2024). *ATP Announces Record Social & Digital Audience Growth*. Geraadpleegd van [atptour.com](https://www.atptour.com/en/news/atp-announces-record-social-digital-audience-growth-2024) & [protennislive.com](https://www.protennislive.com/posting/ramr/current_prize.pdf).
+    * **Concordia University, St. Paul.** (z.d.). *Infographic: Top Paid Athletes by Gender*. Kinesiology. Geraadpleegd van [kinesiology.csp.edu](https://kinesiology.csp.edu/sports-coaches-and-trainers/infographic-top-paid-athletes-by-gender/).
+    * **Forbes.** (2024/2025). *NBA Viewership & Ratings Analysis*. Geraadpleegd van [forbes.com](https://www.forbes.com).
+    * **Front Office Sports.** (2025). *WNBA Viewership Up Across All Networks*. Geraadpleegd van [frontofficesports.com](https://frontofficesports.com/wnba-viewership-up-across-all-networks-compared-to-2024/).
+    * **Golf Monthly.** (2025). *PGA Championship TV Viewing Figures*. Geraadpleegd van [golfmonthly.com](https://www.golfmonthly.com/news/pga-championship-2025-tv-viewing-figures).
+    * **LPGA.** (2020-2024). *Stats and Rankings: Money and Finishes*. Geraadpleegd van [lpga.com](https://www.lpga.com/stats-and-rankings/money-and-finishes).
+    * **PlayToday.** (z.d.). *NBA Viewership Statistics*. Geraadpleegd van [playtoday.co](https://playtoday.co/blog/stats/nba-viewership-statistics/).
+    * **Spotrac.** (2020-2025). *NBA, WNBA & PGA Rankings and Player Contracts*. Geraadpleegd van [spotrac.com](https://www.spotrac.com).
+    * **Sports Business Journal.** (2025). *PGA Tour Viewership Bounces Back*. Geraadpleegd van [sportsbusinessjournal.com](https://www.sportsbusinessjournal.com/Articles/2025/09/02/pga-tours-viewership-bounces-back-in-big-way-from-2024s-drops/).
+    * **USTVDB.** (2023-2025). *LPGA Tour Ratings (NBC & Golf Channel)*. Geraadpleegd van [ustvdb.com](https://ustvdb.com).
+    * **Wikipedia.** (z.d.). *ATP & WTA Tour Overviews (2020-2024), ATP Finals & 500 Tournaments*. Geraadpleegd van [wikipedia.org](https://en.wikipedia.org).
+    * **WNBA.** (2024). *WNBA Delivers Record-Setting 2024 Season*. Geraadpleegd van [wnba.com](https://www.wnba.com/news/wnba-delivers-record-setting-2024-season).
+    * **World Economic Forum.** (2024). *Global Gender Gap Report 2024*. Geraadpleegd van [weforum.org](https://www.weforum.org/publications/global-gender-gap-report-2024/digest/).
+    * **WTA Tennis.** (2020-2024). *Prize Money Reports & Viewership Records (1 Billion Global Audience)*. Geraadpleegd van [wtatennis.com](https://www.wtatennis.com).
     """)
 
 st.markdown("---")
