@@ -272,6 +272,9 @@ def create_line_chart_f4():
     return fig
 
 def create_paradox_chart():
+    # HIER ZAT HET PROBLEEM: Deze regel voegen we toe
+    from plotly.subplots import make_subplots
+    
     fig = make_subplots(rows=1, cols=2)
     
     # Vrouwen (Linker grafiek)
@@ -312,15 +315,14 @@ def create_paradox_chart():
     fig.update_layout(
         title={'text': "De Markt-Paradox van 2025"},
         plot_bgcolor=COLOR_BG_APP, paper_bgcolor=COLOR_BG_APP,
-        font={'family': 'Lora', 'color': COLOR_TEXT}, # Dit regelt het lettertype voor ALLES (ook de assen)
+        font={'family': 'Lora', 'color': COLOR_TEXT}, 
         margin={'l': 50, 'r': 50, 't': 50, 'b': 50},
         legend={'orientation': "v", 'y': 1, 'x': 1.05, 'font': {'color': COLOR_TEXT}}
     )
     
-    # Veilige X-as update (Zonder redundante font-settings)
-    # We laten 'title_font' en 'tickfont' weg, want die erven nu netjes van de hoofd-layout hierboven.
+    # Veilige X-as update 
     common_xaxis_props = {
-        'title': {'text': "% Verandering"}, # Veilige titel notatie
+        'title': {'text': "% Verandering"}, 
         'range': [-19, 50], 
         'dtick': 10, 
         'tickangle': 0, 
