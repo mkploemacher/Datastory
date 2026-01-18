@@ -209,16 +209,18 @@ def create_comparison_chart():
     max_val = max(max(mannen_inkomen), max(vrouwen_inkomen))
     
     fig = go.Figure()
-    fig.add_trace(go.Bar(name='Mannen', x=sporten, y=mannen_inkomen, marker_color=COLOR_MEN, texttemplate='$%{y:,.0f}', textposition='outside', textfont=dict(color=COLOR_TEXT)))
-    fig.add_trace(go.Bar(name='Vrouwen', x=sporten, y=vrouwen_inkomen, marker_color=COLOR_WOMEN, texttemplate='$%{y:,.0f}', textposition='outside', textfont=dict(color=COLOR_TEXT)))
+    fig.add_trace(go.Bar(name='Mannen', x=sporten, y=mannen_inkomen, marker_color=COLOR_MEN, texttemplate='$%{y:,.0f}', textposition='inside', textfont=dict(color=COLOR_TEXT)))
+    fig.add_trace(go.Bar(name='Vrouwen', x=sporten, y=vrouwen_inkomen, marker_color=COLOR_WOMEN, texttemplate='$%{y:,.0f}', textposition='inside', textfont=dict(color=COLOR_TEXT)))
+    
     fig.update_layout(
-        title="Mediaan Inkomen 2025", barmode='group',
+        # AANGEPAST: Titel en font samengevoegd in één dictionary
+        title=dict(text="Mediaan Inkomen 2025", font=dict(color=COLOR_TEXT)),
+        barmode='group',
         plot_bgcolor=COLOR_BG_APP, paper_bgcolor=COLOR_BG_APP,
         yaxis=dict(showgrid=True, gridcolor=COLOR_GRID, range=[0, max_val * 1.25], tickfont=dict(color=COLOR_TEXT)),
         xaxis=dict(tickfont=dict(color=COLOR_TEXT)),
         legend=dict(orientation="h", y=1.1, font=dict(color=COLOR_TEXT)),
-        font=dict(family='Lora', color=COLOR_TEXT),
-        title_font=dict(color=COLOR_TEXT)
+        font=dict(family='Lora', color=COLOR_TEXT)
     )
     return fig
 
@@ -234,15 +236,15 @@ def create_dumbbell_chart():
     fig.add_trace(go.Scatter(x=men_val, y=sports, mode='markers+text', name='Mannen', marker=dict(color=COLOR_MEN, size=16), text=men_val, texttemplate='$%{x:.2f}', textposition='top center', textfont=dict(color=COLOR_TEXT)))
     
     fig.update_layout(
-        title="Earnings per Viewer", 
+        # AANGEPAST: Titel en font samengevoegd
+        title=dict(text="Earnings per Viewer", font=dict(color=COLOR_TEXT)),
         margin=dict(t=50, b=0, l=0, r=0),
         xaxis=dict(title="Dollar per kijker", range=[0, 0.45], showgrid=True, gridcolor=COLOR_GRID, tickfont=dict(color=COLOR_TEXT), titlefont=dict(color=COLOR_TEXT)),
         yaxis=dict(showgrid=False, tickfont=dict(color=COLOR_TEXT)), 
         plot_bgcolor=COLOR_BG_APP, paper_bgcolor=COLOR_BG_APP, 
         legend=dict(orientation="v", y=1, x=1.05, font=dict(color=COLOR_TEXT)), 
         height=400,
-        font=dict(family='Lora', color=COLOR_TEXT),
-        title_font=dict(color=COLOR_TEXT)
+        font=dict(family='Lora', color=COLOR_TEXT)
     )
     return fig
 
@@ -256,13 +258,13 @@ def create_line_chart_f4():
     fig.add_trace(go.Scatter(x=years, y=med_salary, mode='lines+markers', name='Mediaan (De massa)', line=dict(color=COLOR_BROWN_DARK, width=3, dash='dash')))
     
     fig.update_layout(
-        title="Salarisontwikkeling WNBA (2021-2025)",
+        # AANGEPAST: Titel en font samengevoegd
+        title=dict(text="Salarisontwikkeling WNBA (2021-2025)", font=dict(color=COLOR_TEXT)),
         plot_bgcolor=COLOR_BG_APP, paper_bgcolor=COLOR_BG_APP,
         yaxis=dict(title="Inkomen ($)", showgrid=True, gridcolor=COLOR_GRID, tickfont=dict(color=COLOR_TEXT), titlefont=dict(color=COLOR_TEXT)),
         xaxis=dict(tickmode='linear', tickfont=dict(color=COLOR_TEXT)),
         legend=dict(orientation="h", y=1.1, font=dict(color=COLOR_TEXT)),
-        font=dict(family='Lora', color=COLOR_TEXT),
-        title_font=dict(color=COLOR_TEXT)
+        font=dict(family='Lora', color=COLOR_TEXT)
     )
     return fig
 
@@ -277,7 +279,7 @@ def create_paradox_chart():
         y=['Salaris', 'Kijkcijfers'],
         orientation='h',
         marker_color=COLOR_WOMEN, 
-        text=[' -4%', ' +35%'], # Spaties voor uitlijning
+        text=[' -4%', ' +35%'], 
         textposition=['inside', 'outside'], 
         textfont=dict(color=COLOR_TEXT),
         textangle=0,       
@@ -306,10 +308,10 @@ def create_paradox_chart():
     fig.add_trace(go.Scatter(x=[None], y=[None], mode='markers', marker=dict(size=16, color=COLOR_MEN, symbol='circle'), name='Mannen (NBA)', showlegend=True), row=1, col=1)
 
     fig.update_layout(
-        title="De Markt-Paradox van 2025",
+        # AANGEPAST: Titel en font samengevoegd
+        title=dict(text="De Markt-Paradox van 2025", font=dict(color=COLOR_TEXT)),
         plot_bgcolor=COLOR_BG_APP, paper_bgcolor=COLOR_BG_APP,
         font=dict(family='Lora', color=COLOR_TEXT),
-        title_font=dict(color=COLOR_TEXT),
         margin=dict(l=50, r=50, t=50, b=50),
         legend=dict(orientation="v", y=1, x=1.05, font=dict(color=COLOR_TEXT))
     )
