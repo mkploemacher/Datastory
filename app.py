@@ -330,7 +330,7 @@ def create_paradox_chart():
         'zerolinecolor': 'white',
         'showgrid': True, 
         'gridcolor': COLOR_GRID, 
-        '
+        
 
 # =========================================================
 # NAVIGATION & HERO
