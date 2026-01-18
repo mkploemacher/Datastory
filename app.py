@@ -191,14 +191,16 @@ def create_waffle(df_year):
         text=txts, hoverinfo='text',
         textfont=dict(color=COLOR_TEXT)
     )])
+    
+    # Gebruik veilige dict notatie voor layout
     fig.update_layout(
         height=500, width=500, 
         plot_bgcolor=COLOR_BG_APP, paper_bgcolor=COLOR_BG_APP,
-        xaxis=dict(visible=False, range=[-0.5, 9.5]), 
-        yaxis=dict(visible=False, scaleanchor="x", range=[-0.5, 9.5]),
-        margin=dict(t=0, b=0, l=0, r=0),
+        xaxis={'visible': False, 'range': [-0.5, 9.5]}, 
+        yaxis={'visible': False, 'scaleanchor': "x", 'range': [-0.5, 9.5]},
+        margin={'t': 0, 'b': 0, 'l': 0, 'r': 0},
         clickmode='event+select',
-        font=dict(family='Lora', color=COLOR_TEXT)
+        font={'family': 'Lora', 'color': COLOR_TEXT}
     )
     return fig
 
@@ -212,14 +214,15 @@ def create_comparison_chart():
     fig.add_trace(go.Bar(name='Mannen', x=sporten, y=mannen_inkomen, marker_color=COLOR_MEN, texttemplate='$%{y:,.0f}', textposition='inside', textfont=dict(color=COLOR_TEXT)))
     fig.add_trace(go.Bar(name='Vrouwen', x=sporten, y=vrouwen_inkomen, marker_color=COLOR_WOMEN, texttemplate='$%{y:,.0f}', textposition='inside', textfont=dict(color=COLOR_TEXT)))
     
+    # Gebruik veilige dict notatie voor layout
     fig.update_layout(
-        title="Mediaan Inkomen 2025", # Simpele titel, pakt automatisch het globale font
+        title={'text': "Mediaan Inkomen 2025"},
         barmode='group',
         plot_bgcolor=COLOR_BG_APP, paper_bgcolor=COLOR_BG_APP,
-        yaxis=dict(showgrid=True, gridcolor=COLOR_GRID, range=[0, max_val * 1.25]),
-        xaxis=dict(), # Leeg laten, pakt automatisch globale font
-        legend=dict(orientation="h", y=1.1, font=dict(color=COLOR_TEXT)),
-        font=dict(family='Lora', color=COLOR_TEXT) # DIT is de baas, regelt alles
+        yaxis={'showgrid': True, 'gridcolor': COLOR_GRID, 'range': [0, max_val * 1.25], 'tickfont': {'color': COLOR_TEXT}},
+        xaxis={'tickfont': {'color': COLOR_TEXT}},
+        legend={'orientation': "h", 'y': 1.1, 'font': {'color': COLOR_TEXT}},
+        font={'family': 'Lora', 'color': COLOR_TEXT}
     )
     return fig
 
@@ -234,15 +237,17 @@ def create_dumbbell_chart():
     fig.add_trace(go.Scatter(x=women_val, y=sports, mode='markers+text', name='Vrouwen', marker=dict(color=COLOR_WOMEN, size=16), text=women_val, texttemplate='$%{x:.2f}', textposition='top center', textfont=dict(color=COLOR_TEXT)))
     fig.add_trace(go.Scatter(x=men_val, y=sports, mode='markers+text', name='Mannen', marker=dict(color=COLOR_MEN, size=16), text=men_val, texttemplate='$%{x:.2f}', textposition='top center', textfont=dict(color=COLOR_TEXT)))
     
+    # DIT IS WAAR DE FOUT ZAT - NU HERSCHREVEN NAAR VEILIGE DICTS
     fig.update_layout(
-        title="Earnings per Viewer", # Simpele titel
-        margin=dict(t=50, b=0, l=0, r=0),
-        xaxis=dict(title="Dollar per kijker", range=[0, 0.45], showgrid=True, gridcolor=COLOR_GRID),
-        yaxis=dict(showgrid=False), 
-        plot_bgcolor=COLOR_BG_APP, paper_bgcolor=COLOR_BG_APP, 
-        legend=dict(orientation="v", y=1, x=1.05, font=dict(color=COLOR_TEXT)), 
+        title={'text': "Earnings per Viewer"}, 
+        margin={'t': 50, 'b': 0, 'l': 0, 'r': 0},
+        xaxis={'title': "Dollar per kijker", 'range': [0, 0.45], 'showgrid': True, 'gridcolor': COLOR_GRID, 'tickfont': {'color': COLOR_TEXT}, 'title_font': {'color': COLOR_TEXT}},
+        yaxis={'showgrid': False, 'tickfont': {'color': COLOR_TEXT}}, 
+        plot_bgcolor=COLOR_BG_APP, 
+        paper_bgcolor=COLOR_BG_APP, 
+        legend={'orientation': "v", 'y': 1, 'x': 1.05, 'font': {'color': COLOR_TEXT}}, 
         height=400,
-        font=dict(family='Lora', color=COLOR_TEXT) # De globale baas
+        font={'family': 'Lora', 'color': COLOR_TEXT}
     )
     return fig
 
@@ -255,13 +260,14 @@ def create_line_chart_f4():
     fig.add_trace(go.Scatter(x=years, y=avg_salary, mode='lines+markers', name='Gemiddelde (Massa + Sterren)', line=dict(color=COLOR_BROWN_LIGHT, width=3)))
     fig.add_trace(go.Scatter(x=years, y=med_salary, mode='lines+markers', name='Mediaan (De massa)', line=dict(color=COLOR_BROWN_DARK, width=3, dash='dash')))
     
+    # Gebruik veilige dict notatie voor layout
     fig.update_layout(
-        title="Salarisontwikkeling WNBA (2021-2025)",
+        title={'text': "Salarisontwikkeling WNBA (2021-2025)"},
         plot_bgcolor=COLOR_BG_APP, paper_bgcolor=COLOR_BG_APP,
-        yaxis=dict(title="Inkomen ($)", showgrid=True, gridcolor=COLOR_GRID),
-        xaxis=dict(tickmode='linear'),
-        legend=dict(orientation="h", y=1.1, font=dict(color=COLOR_TEXT)),
-        font=dict(family='Lora', color=COLOR_TEXT)
+        yaxis={'title': "Inkomen ($)", 'showgrid': True, 'gridcolor': COLOR_GRID, 'tickfont': {'color': COLOR_TEXT}, 'title_font': {'color': COLOR_TEXT}},
+        xaxis={'tickmode': 'linear', 'tickfont': {'color': COLOR_TEXT}},
+        legend={'orientation': "h", 'y': 1.1, 'font': {'color': COLOR_TEXT}},
+        font={'family': 'Lora', 'color': COLOR_TEXT}
     )
     return fig
 
@@ -304,26 +310,27 @@ def create_paradox_chart():
     fig.add_trace(go.Scatter(x=[None], y=[None], mode='markers', marker=dict(size=16, color=COLOR_WOMEN, symbol='circle'), name='Vrouwen (WNBA)', showlegend=True), row=1, col=1)
     fig.add_trace(go.Scatter(x=[None], y=[None], mode='markers', marker=dict(size=16, color=COLOR_MEN, symbol='circle'), name='Mannen (NBA)', showlegend=True), row=1, col=1)
 
+    # Gebruik veilige dict notatie voor layout
     fig.update_layout(
-        title="De Markt-Paradox van 2025",
+        title={'text': "De Markt-Paradox van 2025"},
         plot_bgcolor=COLOR_BG_APP, paper_bgcolor=COLOR_BG_APP,
-        font=dict(family='Lora', color=COLOR_TEXT), # Globale baas
-        margin=dict(l=50, r=50, t=50, b=50),
-        legend=dict(orientation="v", y=1, x=1.05, font=dict(color=COLOR_TEXT))
+        font={'family': 'Lora', 'color': COLOR_TEXT},
+        margin={'l': 50, 'r': 50, 't': 50, 'b': 50},
+        legend={'orientation': "v", 'y': 1, 'x': 1.05, 'font': {'color': COLOR_TEXT}}
     )
     
-    # Opgeschoonde x-as settings (zonder dubbele font settings)
-    common_xaxis_props = dict(
-        title_text="% Verandering", range=[-19, 50], dtick=10, tickangle=0, zeroline=True, zerolinewidth=2, zerolinecolor='white',
-        showgrid=True, gridcolor=COLOR_GRID, gridwidth=1
-    )
-
-    fig.update_xaxes(**common_xaxis_props, row=1, col=1)
-    fig.update_xaxes(**common_xaxis_props, row=1, col=2)
-    fig.update_yaxes(tickfont=dict(color=COLOR_TEXT), row=1, col=1)
-    fig.update_yaxes(showticklabels=False, row=1, col=2) 
-
-    return fig
+    # Veilige update x-as
+    common_xaxis_props = {
+        'title_text': "% Verandering", 
+        'range': [-19, 50], 
+        'dtick': 10, 
+        'tickangle': 0, 
+        'zeroline': True, 
+        'zerolinewidth': 2, 
+        'zerolinecolor': 'white',
+        'showgrid': True, 
+        'gridcolor': COLOR_GRID, 
+        '
 
 # =========================================================
 # NAVIGATION & HERO
