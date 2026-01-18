@@ -272,8 +272,6 @@ def create_line_chart_f4():
     return fig
 
 def create_paradox_chart():
-    from plotly.subplots import make_subplots
-    
     fig = make_subplots(rows=1, cols=2)
     
     # Vrouwen (Linker grafiek)
@@ -310,18 +308,19 @@ def create_paradox_chart():
     fig.add_trace(go.Scatter(x=[None], y=[None], mode='markers', marker=dict(size=16, color=COLOR_WOMEN, symbol='circle'), name='Vrouwen (WNBA)', showlegend=True), row=1, col=1)
     fig.add_trace(go.Scatter(x=[None], y=[None], mode='markers', marker=dict(size=16, color=COLOR_MEN, symbol='circle'), name='Mannen (NBA)', showlegend=True), row=1, col=1)
 
-    # Gebruik veilige dict notatie voor layout
+    # Veilige Layout update
     fig.update_layout(
         title={'text': "De Markt-Paradox van 2025"},
         plot_bgcolor=COLOR_BG_APP, paper_bgcolor=COLOR_BG_APP,
-        font={'family': 'Lora', 'color': COLOR_TEXT},
+        font={'family': 'Lora', 'color': COLOR_TEXT}, # Dit regelt het lettertype voor ALLES (ook de assen)
         margin={'l': 50, 'r': 50, 't': 50, 'b': 50},
         legend={'orientation': "v", 'y': 1, 'x': 1.05, 'font': {'color': COLOR_TEXT}}
     )
     
-    # Veilige update x-as
+    # Veilige X-as update (Zonder redundante font-settings)
+    # We laten 'title_font' en 'tickfont' weg, want die erven nu netjes van de hoofd-layout hierboven.
     common_xaxis_props = {
-        'title_text': "% Verandering", 
+        'title': {'text': "% Verandering"}, # Veilige titel notatie
         'range': [-19, 50], 
         'dtick': 10, 
         'tickangle': 0, 
@@ -330,7 +329,17 @@ def create_paradox_chart():
         'zerolinecolor': 'white',
         'showgrid': True, 
         'gridcolor': COLOR_GRID, 
-        }
+        'gridwidth': 1
+    }
+
+    fig.update_xaxes(**common_xaxis_props, row=1, col=1)
+    fig.update_xaxes(**common_xaxis_props, row=1, col=2)
+    
+    # Y-as updates
+    fig.update_yaxes(tickfont={'color': COLOR_TEXT}, row=1, col=1)
+    fig.update_yaxes(showticklabels=False, row=1, col=2) 
+
+    return fig
 
 # =========================================================
 # NAVIGATION & HERO
